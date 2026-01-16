@@ -13,6 +13,7 @@ import { ErrorType } from 'src/helper/enum';
 export class AllExceptionsFilter implements ExceptionFilter {
   constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
   catch(exception: any, host: ArgumentsHost) {
+    console.log('Exception caught by AllExceptionsFilter:', exception);
     const { httpAdapter } = this.httpAdapterHost;
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
